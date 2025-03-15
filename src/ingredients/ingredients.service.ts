@@ -7,9 +7,6 @@ import { PrismaService } from 'src/prisma.service';
 @Injectable()
 export class IngredientsService {
   constructor(private prisma: PrismaService) {}
-  create(createIngredientDto: CreateIngredientDto) {
-    return 'This action adds a new ingredient';
-  }
 
   async createIngredient(createIngredientDto: CreateIngredientDto) {
     return this.prisma.ingredients.create({
