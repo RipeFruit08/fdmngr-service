@@ -1,17 +1,15 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { TestBed, Mocked } from '@suites/unit';
 import { IngredientsController } from './ingredients.controller';
 import { IngredientsService } from './ingredients.service';
 
 describe('IngredientsController', () => {
   let controller: IngredientsController;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [IngredientsController],
-      providers: [IngredientsService],
-    }).compile();
-
-    controller = module.get<IngredientsController>(IngredientsController);
+  beforeAll(async () => {
+    const { unit, unitRef } = await TestBed.solitary(
+      IngredientsController,
+    ).compile();
+    controller = unit;
   });
 
   it('should be defined', () => {
