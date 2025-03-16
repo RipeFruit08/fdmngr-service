@@ -15,21 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: "☁️ checkout repository"
-        uses: actions/checkout@v2
+      - name: '☁️ checkout repository'
+        uses: actions/checkout@v4
 
-      - name: "🔧 setup node"
-        uses: actions/setup-node@v2.1.5
+      - name: '🔧 setup node'
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: latest
 
-      - name: "🔧 install npm@latest"
+      - name: '🔧 install npm@latest'
         run: npm i -g npm@latest
 
-      - name: "📦 install dependencies"
+      - name: '📦 install dependencies'
         uses: bahmutov/npm-install@v1
 
-      - name: "🔍 run tests"
+      - name: '🔍 run tests'
         run: npm run test --if-present
 
   lint:
@@ -37,19 +37,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: "☁️ checkout repository"
+      - name: '☁️ checkout repository'
         uses: actions/checkout@v2
 
-      - name: "🔧 setup node"
+      - name: '🔧 setup node'
         uses: actions/setup-node@v2.1.5
         with:
           node-version: 16
 
-      - name: "🔧 install npm@latest"
+      - name: '🔧 install npm@latest'
         run: npm i -g npm@latest
 
-      - name: "📦 install dependencies"
+      - name: '📦 install dependencies'
         uses: bahmutov/npm-install@v1
 
-      - name: "🔍 lint code"
+      - name: '🔍 lint code'
         run: npm run lint --if-present
