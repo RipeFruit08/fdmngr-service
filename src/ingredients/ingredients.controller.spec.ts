@@ -79,7 +79,6 @@ describe('IngredientsController', () => {
     expect(reuslt).toBe(updatedIngredient);
   });
 
-  // TODO test delete call
   it('should delete ingredient', async () => {
     const deletedIngredient: IngredientEntity = {
       id: 1,
