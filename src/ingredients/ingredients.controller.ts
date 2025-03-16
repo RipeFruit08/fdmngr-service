@@ -26,7 +26,7 @@ export class IngredientsController {
   @Post()
   @ApiOperation({ summary: 'Creates a new ingredient' })
   @ApiCreatedResponse({ type: IngredientEntity })
-  create(@Body() createIngredientDto: CreateIngredientDto) {
+  async create(@Body() createIngredientDto: CreateIngredientDto) {
     return this.ingredientsService.createIngredient(createIngredientDto);
   }
 
