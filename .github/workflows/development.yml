@@ -38,12 +38,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: '☁️ checkout repository'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: '🔧 setup node'
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: latest
 
       - name: '🔧 install npm@latest'
         run: npm i -g npm@latest
