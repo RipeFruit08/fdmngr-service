@@ -63,7 +63,7 @@ describe('IngredientsController', () => {
       quantity: 2,
     };
     service.ingredient.mockResolvedValue(fetchedIngredient);
-    const result = await controller.getIngredientById('1');
+    const result = await controller.getIngredientById(1);
     expect(result).toBe(fetchedIngredient);
   });
 
@@ -75,7 +75,7 @@ describe('IngredientsController', () => {
       quantity: 2,
     };
     service.update.mockResolvedValue(updatedIngredient);
-    const reuslt = await controller.update('1', { name: 'new name' });
+    const reuslt = await controller.update(1, { name: 'new name' });
     expect(reuslt).toBe(updatedIngredient);
   });
 
@@ -87,7 +87,7 @@ describe('IngredientsController', () => {
       quantity: 2,
     };
     service.remove.mockResolvedValue(deletedIngredient);
-    const result = await controller.remove('1');
+    const result = await controller.remove(1);
     expect(result).toBe(deletedIngredient);
   });
 });

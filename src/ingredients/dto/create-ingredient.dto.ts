@@ -29,10 +29,11 @@ export class CreateIngredientDto {
 
   @IsInt()
   @Min(0)
-  @IsNotEmpty()
+  @IsOptional()
   @ApiProperty({
     description: 'A quantity of the ingredient',
     example: '5',
+    required: false,
   })
   quantity: number;
 }

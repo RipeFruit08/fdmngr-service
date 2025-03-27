@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { IngredientsService } from './ingredients.service';
 import { CreateIngredientDto } from './dto/create-ingredient.dto';
@@ -40,24 +41,24 @@ export class IngredientsController {
   @Get(':id')
   @ApiOperation({ summary: 'Fetches a single ingredient' })
   @ApiOkResponse({ type: IngredientEntity })
-  async getIngredientById(@Param('id') id: string) {
-    return this.ingredientsService.ingredient({ id: Number(id) });
+  async getIngredientById(@Param('id', ParseIntPipe) id: number) {
+    return this.ingredientsService.ingredient({ id });
   }
 
   @Patch(':id')
   @ApiOperation({ summary: 'Updates an ingredient' })
   @ApiOkResponse({ type: IngredientEntity })
   update(
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() updateIngredientDto: UpdateIngredientDto,
   ) {
-    return this.ingredientsService.update(+id, updateIngredientDto);
+    return this.ingredientsService.update(id, updateIngredientDto);
   }
 
   @Delete(':id')
   @ApiOperation({ summary: 'Deletes an ingredient' })
   @ApiOkResponse({ type: IngredientEntity })
-  remove(@Param('id') id: string) {
-    return this.ingredientsService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.ingredientsService.remove(id);
   }
 }
